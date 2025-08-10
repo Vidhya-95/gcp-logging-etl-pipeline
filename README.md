@@ -27,8 +27,8 @@ BigQuery Table
 |--------------|----------|-------------|
 | resource_name | STRING   | Name of GCP service |
 | resource_type | STRING   | Type of service eg. compute |
-| operation_type| STRING   | Log severity level |
-| resource_project| STRING| Time log was generated |
+| operation_type| STRING   | Type of operation (CREATE or DELETE) |
+| resource_project| STRING | Project in which the resource was created or deleted. |
 | resource_zone | STRING   | Zone of service |
 
 
