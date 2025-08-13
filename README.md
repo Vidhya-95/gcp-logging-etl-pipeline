@@ -50,3 +50,7 @@ BigQuery Table
     --trigger-topic audit-logs \
     --entry-point main \
     --region us-central1
+
+## 🧠 Future Enhancements
+- Add dashboard visualization in Looker Studio/Grafana
+- Use Terraform script to create the GCP resources
