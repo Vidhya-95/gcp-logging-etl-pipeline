@@ -14,7 +14,7 @@ project = client.project
 
 # Triggered from a message on a Cloud Pub/Sub topic.
 @functions_framework.cloud_event
-def transform_resources_data(cloud_event):
+def main(cloud_event):
     dataset_name = "resourceDataset"
     table_name = "resourceTable"
     json_data = json.loads(base64.b64decode(cloud_event.data["message"]["data"]))
