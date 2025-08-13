@@ -33,6 +33,20 @@ BigQuery Table
 
 
 ## 🚀 Deployment Steps
-
+1. **Create a Pub/Sub topic** 
    ```bash
-   gcloud pubsub topics create error-logs
+   gcloud pubsub topics create audit-logs
+   
+2. **Create Logging Sink**
+   ```bash
+   gcloud logging sinks create error-sink \
+    pubsub.googleapis.com/projects/PROJECT_ID/topics/audit-logs \
+    --log-filter='logName="projects/genuine-episode-462014-q6/logs/cloudaudit.googleapis.com%2Factivity" AND protoPayload.methodName:("create" OR "delete" OR "insert") AND operation.last="true"'
+
+3. **Deploy the Cloud Function**  
+   ```bash
+   gcloud functions deploy process_audit_logs \
+    --runtime python313 \
+    --trigger-topic audit-logs \
+    --entry-point main \
+    --region us-central1
