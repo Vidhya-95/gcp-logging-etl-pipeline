@@ -39,9 +39,9 @@ BigQuery Table
    
 2. **Create Logging Sink**
    ```bash
-   gcloud logging sinks create error-sink \
-    pubsub.googleapis.com/projects/PROJECT_ID/topics/audit-logs \
-    --log-filter='logName="projects/genuine-episode-462014-q6/logs/cloudaudit.googleapis.com%2Factivity" AND protoPayload.methodName:("create" OR "delete" OR "insert") AND operation.last="true"'
+   gcloud logging sinks create audit-log-sink \
+    pubsub.googleapis.com/projects/**PROJECT_ID**/topics/audit-logs \
+    --log-filter='logName="projects/**PROJECT_ID**/logs/cloudaudit.googleapis.com%2Factivity" AND protoPayload.methodName:("create" OR "delete" OR "insert") AND operation.last="true"'
 
 3. **Deploy the Cloud Function**  
    ```bash
@@ -49,7 +49,9 @@ BigQuery Table
     --runtime python313 \
     --trigger-topic audit-logs \
     --entry-point main \
-    --region us-central1
+    --region us-central1 \
+    --source 
+    
 
 ## 🧠 Future Enhancements
 - Add dashboard visualization in Looker Studio/Grafana
