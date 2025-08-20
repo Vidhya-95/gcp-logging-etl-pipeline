@@ -25,12 +25,32 @@ BigQuery Table
 ## 📂 BigQuery Table Schema
 | Column       | Type     | Description |
 |--------------|----------|-------------|
-| resource_name | STRING   | Name of GCP service |
+| resource_name | STRING   | Name of GCP resource |
 | resource_type | STRING   | Type of service eg. compute |
 | operation_type| STRING   | Type of operation (CREATE or DELETE) |
 | resource_project| STRING | Project in which the resource was created or deleted. |
-| resource_zone | STRING   | Zone of service |
+| resource_zone | STRING   | Zone of resource |
 
+## **Prerequisites** 
+**1. Enable the APIs :**
+- Cloud Pub/Sub API
+- Eventarc API
+- BigQuery API
+- Cloud Functions API
+- Cloud Logging API
+  
+**2. Make sure you or your Service Account (recommended) have the following permissions before you deploy the resources:**
+- BigQuery Data Editor
+- Cloud Build Logging Service Agent
+- Cloud Build Service Account
+- Cloud Functions Developer
+- Cloud Run Builder
+- Logging Admin
+- Logs Configuration Writer
+- Pub/Sub Editor
+- Service Account User
+
+  
 
 ## 🚀 Deployment Steps
 1. **Create a Pub/Sub topic** 
@@ -50,8 +70,10 @@ BigQuery Table
     --trigger-topic audit-logs \
     --entry-point main \
     --region us-central1 \
-    --source 
-    
+    --source **<PATH_TO_PYTHON_CODE>**
+
+## Useful Links:
+- [Create a service account and assign roles](https://cloud.google.com/iam/docs/service-accounts-create#gcloud)
 
 ## 🧠 Future Enhancements
 - Add dashboard visualization in Looker Studio/Grafana
