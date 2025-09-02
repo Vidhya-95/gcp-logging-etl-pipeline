@@ -72,6 +72,7 @@ BigQuery Table
     --region us-central1 \
     --source **<PATH_TO_PYTHON_CODE>**
 
+**NOTE :** [Python code available here](gcp-error-etl-pipeline)
 ## Useful Links:
 - [Create a service account and assign roles](https://cloud.google.com/iam/docs/service-accounts-create#gcloud)
 
