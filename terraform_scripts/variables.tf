@@ -1,9 +1,5 @@
-locals {
-  project_id = var.project_id
-}
-
 variable "project_id" {
-  default     = "rich-chimera-462008-v9"
+  default     = "<PROJECT_ID>" #Add your desired project id.
   description = "This a GCP Project Id"
 }
 
